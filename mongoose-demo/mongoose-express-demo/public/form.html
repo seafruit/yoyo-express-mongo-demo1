@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form-post-test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<form method="post" id="forming">
+    用户名：<input type="text" id="username" name="username">
+    密码：<input type="password" id="password" name="password">
+    <input type="submit" id="submit"/>
+</form>
+<p id="return-message"></p>
+<script type="text/javascript">
+//    $("#submit").click
+    $("#forming").submit
+    (
+            function () {
+                console.log('表单将要提交');
+                login();
+                console.log('表单已经提交');
+                return false;
+            }
+    );
+    function login() {
+        var userName = $("#userName").val();
+        var password = $("#password").val();
+        console.log(userName);
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:2014/find",
+            async: true,
+            data: "username=" + userName + "password=" + password,
+            beforeSend: function () {
+            },
+            success: function (msg) {
+                    $('#return-message').html(msg);
+            },
+            error: function (xhr) {
+                    alert('Sorry, there was a problem!'+xhr.status);
+                }
+
+        });
+    }
+</script>
+</body>
+</html>
