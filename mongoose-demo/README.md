@@ -6,10 +6,8 @@ npm install
 ```
 node index.js
 ```
-在浏览器中打开localhost:2014/connect/
-在浏览器中打开localhost:2014/find/
-在浏览器中打开localhost:2014/remove/
-在浏览器中打开localhost:2014/insert/
+然后去访问localhost:2014/
+结果只有我知道，不要奇怪哦！
 
 
 当然了，在运行的时候需要稍稍改一下mongoose-express-demo文件目录下的index.js
